@@ -1,0 +1,655 @@
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    
+}
+html{
+    scroll-behavior: smooth ;
+}
+body
+{
+
+    font-family: 'Popping', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+
+}
+/* Keyframes for blinking animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* languague switcher starts*/
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #e2c7c7;
+    margin-top: 0;;
+    margin-bottom: 0%;
+  }
+  
+  .language-switcher select {
+    font-size: 0.5rem;
+    color: #fff;
+    background-color:  rgba(53, 49, 49, 0.8);
+    border: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .language-switcher select:hover {
+    background-color: #7b7874;
+  }
+
+/* languague switcher ends */
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(53, 49, 49, 0.8);
+     border-bottom: 1px solid #513c28;
+     position: fixed ;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 9999;
+}
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+     display: inline-block ;
+     font-size: 1.4rem ;
+     margin: 0 1rem;
+}
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+.navbar .navbar-nav a::after {
+    content:'';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2 linear;
+}
+.navbar .navbar-nav a:hover::after{
+    transform: scaleX(0.5);
+}
+.navbar .navbar-extra a{
+     color: #fff;
+     margin: 2rem 2rem 0.5rem 0.5rem;
+}
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+#hamburger-menu {
+    display:none;
+   
+}
+
+/* hero section */
+.hero{
+    min-height: 100vh ;
+    display: flex;
+    align-items: center;
+    background-image: url(
+        ../img/header-gb.jpeg);
+        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1,1,3, 1)3%, rgba(255,255,255,0)25%);
+}
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+.hero .content h1 {
+    font-size: 5em;
+    color: #fbf7f7;
+    text-shadow: 1px 1px 3px rgba(1,1,3, 50%);
+    line-height: 1.2;
+}
+.hero .content h1 span{
+    color: var(--primary);
+}
+.hero .content p{
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    line-height: 1.4 ;
+    font-weight: 100;
+    text-shadow: 1px 1px 3px rgba(1,1,3, 50%);
+    line-height: 1.2;
+    
+}
+
+.cta {
+    position: fixed;
+    top: 10rem;
+    right: 3rem; 
+    z-index: 999;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: rgba(101, 231, 101, 0.584);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: blink 1.5s infinite;
+  }
+  
+  .cta:hover {
+    background-color: #d6cfc8;
+  }
+
+/*about section*/
+
+.about, .Menu, .contact {
+    padding: 8rem 7% 1.4rem;
+}
+.about h2, .Menu h2, .contact h2 {
+     text-align: center;
+     font-size: 2.6rem;
+     margin-bottom: 3rem;
+}
+.order h2 span, .about h2 span, .Menu h2 span, .contact h2 span {
+    color: var(--primary);
+}
+
+.about .row {
+    display: flex;
+}
+.about .row .about-img {
+    flex: 1 1 45rem;
+}
+.about .row .about-img img {
+    width: 100%;
+    max-height: 30rem;
+
+}
+.about .row .content {
+    font-size: 1.2rem;
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+.Menu h2, .contact h2 {
+    font-size: 1.2re;
+    margin-bottom: 1rem;
+   
+}
+.Menu p, .contact p {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1rem;
+}
+/* Menu sections */
+.Menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+}
+.Menu .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+    flex: 1 1 45%; /* Set a maximum width for each menu card */
+    max-width: 30rem;
+    margin: 1rem; /* Add some margin between the cards */
+    display: flex; /* Use flexbox to align items in a column layout */
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Menu .row .menu-card img {
+    width: 100%; /* Adjust the image width as needed */
+    max-height: 12rem; /* Limit the image height to prevent them from becoming too large */
+    object-fit: cover; /* Use object-fit to maintain the image aspect ratio */
+    object-position: center; /* Center the image within the container */
+    border-radius: 2rem; /* Remove the border-radius */
+}
+
+.Menu .row .menu-card .menu-card-price {
+    font-size: 3rem;
+    margin: 1.5rem auto 0.5rem;
+}
+.Menu .row .menu-card .menu-card-title {
+    margin: 1.5rem auto 0.5rem;
+}
+
+/* contact section*/
+.contact {
+    margin: 0%;
+}
+.contact .row{
+    display: flex;
+    margin-top: 2rem;
+    background-color: #222;
+
+}
+.contact .row .map {
+    flex: 1 1 45rem;
+    width: 100%;
+}
+.contact .row form {
+     flex: 1 1 45em;
+     padding: 5rem 2rem;
+     text-align: center;
+      
+}
+.contact .row form .input-group {
+    display:flex; 
+    align-items:center; 
+    margin-top: 2rem;
+    background-color:var(--bg);
+    border: 1px solid #eee;
+    padding-left: 2rem;
+    border-radius: 2rem;
+}
+.contact .row form .input-group input {
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    background: none;
+    color: #fff;
+}
+.contact .row form .btn {
+    margin-top: 3rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: var(--primary);
+    cursor: pointer;
+    border-radius: 2rem;
+}
+footer {
+    background-color: var(--primary);
+    text-align: center;
+     padding: 1rem 0;
+     margin-top: 3rem;
+     padding-bottom: 1rem;
+}
+footer .socials {
+padding: 1rem 0;
+}
+footer .socials a {
+    color: #fff;
+    margin: 1rem;
+}
+footer .socials a:hover,
+footer .links a:hover
+{
+     color: var(--bg);
+}
+footer .links a {
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+footer .links {
+    margin-bottom: 1.4rem;
+}
+footer .credit {
+    font-size: 0.8rem;
+
+}
+footer .credit a {
+    color: var(--bg);
+    font-weight: 700;
+}
+/* Your existing CSS code */
+
+/* Add this style to your existing CSS or create a new CSS file */
+
+
+/* Updated style to make the white border smaller */
+.order {
+    background-color: #f9f9f9;
+    padding: 10px; /* Reduce the padding value */
+    border-radius: 10px;
+    margin: 20rem; /* Add margin on the left and right sides */
+    margin-top: 0%;
+  }
+  .order h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .order p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  .menu-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-item {
+    flex: 0 0 calc(50% - 20px); /* Each menu item takes up 50% width with a 20px gap in between */
+    max-width: 300px; /* Set a maximum width for each menu item */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card-title {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.menu-card-price {
+    margin: 10px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu-card-detail {
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+}
+
+  .remove-btn {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 10px;
+  }
+  
+  /* Optional: Add hover effect for better user experience */
+  .menu-item:hover {
+    background-color: #e9c6c6;
+  }
+  
+  .order .btn {
+    margin-top: 3rem;
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: #b5997d;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order .btn:hover {
+    background-color: #7b7874;
+  }
+  #order-summary {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background-color: rgba(157, 87, 87, 0.8);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: left;
+}
+
+#order-summary p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+#order-summary p:last-child {
+    margin-bottom: 0;
+}
+  
+  #order-summary h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  #order-summary .summary-item {
+    margin: 0.5rem 0;
+  }
+  
+  #order-summary .summary-item p {
+    font-size: 1.4rem;
+  }
+  
+  #order-summary span {
+    font-weight: bold;
+    color: #f7c316; /* Color for the total price */
+  }
+#delivery-details {
+    margin-top: 1rem;
+    flex-direction: column;
+    display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#delivery-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #090909;
+}
+
+#delivery-details label {
+    font-size: 1.2rem;
+    color: #b69e9e;
+    margin-right: 1rem;
+    min-width: auto;
+}
+
+#delivery-details .delivery-input {
+    box-sizing: border-box; /* Set box-sizing to border-box for all delivery inputs */
+    flex: 1;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: rgba(226, 208, 152, 0.85);
+    color: #655c5c;
+    border-radius: 1.5rem;
+}
+
+#delivery-details .delivery-input::placeholder,
+#delivery-details label {
+    color: #f99b9b;
+}
+
+#delivery-details .delivery-input:focus {
+    outline: none;
+    background-color: rgba(190, 228, 196, 0.3);
+}
+
+#order-summary {
+    margin-top: 4rem;
+}
+
+#order-summary p {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+#order-form {
+    text-align: center;
+  }
+  
+  #send-order-btn {
+    margin-top: 20px; /* Add some margin to separate from the order summary */
+  }
+  
+  /* Additional media query for responsiveness */
+  
+  @media (max-width: 768px) {
+    .order .menu-item {
+      flex: 1 1 100%;
+    }
+    
+    .order .menu-item label {
+      font-size: 1.4rem;
+    }
+    
+    .order .btn {
+      margin-top: 2rem;
+    }
+    .order .delivery-details .input-group {
+        flex-direction: column;
+    }
+
+    .order .delivery-details .input-group label {
+        margin-bottom: 0.5rem;
+    }
+  }
+  
+
+@media (max-width:1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+@media (max-width:758px) {
+    html {
+        font-size: 62.5%;
+    }
+#hamburger-menu {
+    display: inline-block;
+}
+.navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+}
+.navbar .navbar-nav.active {
+    right: 0;
+}
+.navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 3rem;
+}
+.navbar .navbar-nav a ::after {
+    transform-origin: 0 0;
+}
+.navbar .navbar-nav a :hover::after {
+    transform: scaleX(0.2);
+}
+.about .row {
+    flex-wrap: wrap;
+}
+.about .row .about-img img {
+    width: 100%;
+    height: auto; /* Set height to auto to maintain the aspect ratio */
+
+    object-position: center;
+ 
+}
+
+.about .row .content {
+    padding: 0;
+}
+.about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+}
+.Menu p {
+    font-size: 1.2rem;
+}
+.contact .row .map{
+    height: 30rem;
+}
+.contact .row form{
+    padding-top: 0;
+}
+.contact .row {
+    flex-wrap: wrap;
+}
+.order .menu-item {
+    flex: 1 1 100%; /* On smaller screens, make each menu item take up the full width */
+  }
+  
+  .order .btn {
+    margin-top: 2rem; /* Adjust the margin for the submit button on smaller screens */
+  }
+  .order {
+    margin: 20px; /* Add margin back to the .order element */
+    width: 95%; /* Reduce the width to make it responsive */
+  }
+
+  .menu-item {
+    margin: 10px; /* Adjust the margin value as needed */
+  }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+.remove-btn {
+    background-color: #fa0769;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.5rem;
+    border-radius: 2rem;
+    margin-left: 5px; /* Adjust the spacing as needed */
+  }
