@@ -167,7 +167,7 @@ body
     border-radius: 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    animation: blink 1.5s infinite;
+    animation: blink 1.2s infinite;
   }
   
   .cta:hover {
@@ -379,11 +379,12 @@ footer .credit a {
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+/* menu's font */
 .menu-card-title {
     margin: 0;
     font-size: 24px;
     text-align: center;
+    color: #fb0606;
 }
 
 .menu-card-price {
@@ -413,14 +414,14 @@ footer .credit a {
   .menu-item:hover {
     background-color: #e9c6c6;
   }
-  
+  /* submit order buttom */
   .order .btn {
     margin-top: 3rem;
     display: inline-block;
     padding: 1.5rem 3rem;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: #fff;
-    background-color: #b5997d;
+    background-color: #7ee99d;
     border: none;
     border-radius: 2rem;
     cursor: pointer;
@@ -432,9 +433,9 @@ footer .credit a {
   }
   #order-summary {
     position: fixed;
-    top: 2rem;
-    left: 2rem;
-    background-color: rgba(157, 87, 87, 0.8);
+    top: 5.5rem;
+    left: 1rem;
+    background-color:rgba(53, 49, 49, 0.8);
     padding: 0.5rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -444,7 +445,7 @@ footer .credit a {
 
 #order-summary p {
     margin-bottom: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 #order-summary p:last-child {
@@ -454,6 +455,7 @@ footer .credit a {
   #order-summary h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #f0f0f0;
   }
   
   #order-summary .summary-item {
@@ -503,7 +505,7 @@ footer .credit a {
 
 #delivery-details .delivery-input::placeholder,
 #delivery-details label {
-    color: #f99b9b;
+    color: #9b8787;
 }
 
 #delivery-details .delivery-input:focus {
