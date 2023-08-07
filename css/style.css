@@ -156,7 +156,7 @@ body
 
 .cta {
     position: fixed;
-    top: 10rem;
+    bottom: 10 rem;
     right: 3rem; 
     z-index: 999;
     padding: 1rem 3rem;
