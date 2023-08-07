@@ -412,7 +412,7 @@ footer .credit a {
   
   /* Optional: Add hover effect for better user experience */
   .menu-item:hover {
-    background-color: #e9c6c6;
+    background-color: #615b5b;
   }
   /* submit order buttom */
   .order .btn {
@@ -433,7 +433,7 @@ footer .credit a {
   }
   #order-summary {
     position: fixed;
-    top: 6.5rem;
+    top: 6rem;
     left: 1rem;
     background-color:rgba(53, 49, 49, 0.8);
     padding: 0.5rem;
