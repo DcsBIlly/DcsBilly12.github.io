@@ -50,7 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("total-price").textContent = totalPrice.toFixed(2);
     };
 
- 
+ // Function to show the order summary
+ const showOrderSummary = () => {
+   const orderSummary = document.getElementById("order-summary");
+   orderSummary.style.display = "block";
+ };
+
+ // Function to hide the order summary
+ const hideOrderSummary = () => {
+   const orderSummary = document.getElementById("order-summary");
+   orderSummary.style.display = "none";
+ };
+  // hide order summary
+  hideOrderSummary();
    // Event listener for the menu items
    menuItems.forEach((menuItem) => {
      menuItem.addEventListener("click", () => {
@@ -67,7 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
  
        totalItems++;
        totalPrice += price;
+
+      //  update order Summary
        updateOrderSummary();
+
+   // Show the order summary
+      showOrderSummary();
      });
    });
  
@@ -85,8 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
      });
    });
  });
- 
-
 
   document.getElementById("send-order-btn").addEventListener("click", function () {
    // Get data from the form
