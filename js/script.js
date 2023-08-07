@@ -11,9 +11,33 @@ const navbarNav= document.querySelector ('.navbar-nav');
     }
  });
 
- 
- // JavaScript code for placing order
+  // Get the "Order Agora" button element
+  const orderButton = document.querySelector('.cta');
 
+  // Get the "Place Your Order" section element
+  const orderSection = document.getElementById('order');
+
+  // Function to toggle the visibility of the button based on scroll position
+  function toggleOrderButtonVisibility() {
+      const orderSectionTop = orderSection.getBoundingClientRect().top;
+      const orderButtonHeight = orderButton.offsetHeight;
+
+      if (orderSectionTop <= orderButtonHeight) {
+          orderButton.style.display = 'none';
+      } else {
+          orderButton.style.display = 'block';
+      }
+  }
+
+  // Event listener to handle scroll and update button visibility
+  window.addEventListener('scroll', toggleOrderButtonVisibility);
+
+  // Initial call to set the initial visibility of the button
+  toggleOrderButtonVisibility();
+
+
+
+ // JavaScript code for placing order
 document.addEventListener("DOMContentLoaded", () => {
    const menuItems = document.querySelectorAll(".menu-item");
  
