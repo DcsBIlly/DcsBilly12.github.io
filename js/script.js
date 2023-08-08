@@ -135,6 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
    const totalItems = document.getElementById("total-items").innerText;
    const totalPrice = document.getElementById("total-price").innerText;
 
+
+      // Check if any of the delivery details fields are empty
+   if (name === "" || address === "" || phone === "") {
+    alert("Please fill in all delivery details before submitting your order.");
+    return; // Stop further execution
+}
+
    // Construct the WhatsApp message using the collected form data and order summary
    let message = `Order Details:\n\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\n\nSelected Items:\n`;
 
