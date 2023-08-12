@@ -201,7 +201,7 @@ function updateSubmitButtonVisibility() {
 const orderButton = document.getElementById("order-button");
 
 // Get the menu section element
-const menuSection = document.getElementById("menu");
+const menuSection = document.getElementById("Hero");
 
 // Function to toggle the visibility of the button based on scroll position
 function toggleOrderButtonVisibility() {
