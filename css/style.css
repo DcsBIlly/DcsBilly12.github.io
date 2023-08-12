@@ -648,7 +648,7 @@ footer .credit a {
   }
 }
 
-@media (max-width:385px) {
+@media (max-width:450px) {
     html {
         font-size: 50%;
     }
