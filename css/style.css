@@ -648,12 +648,14 @@ footer .credit a {
   }
 }
 
-@media (max-width:450px) {
+@media (max-width:385px) {
     html {
         font-size: 50%;
     }
     .menu-item {
-        width: calc(50% - 20px);
+        flex: 0 0 calc(40% - 8px); /* Adjust width for 2 items per row */
+        margin: 8px;
+        padding: 4px;
     }
 }
 /* Style for the "Submit Order" button */
