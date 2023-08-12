@@ -175,7 +175,7 @@ document.getElementById("send-order-btn").addEventListener("click", function () 
   });
 
   // Replace 'YOUR_PHONE_NUMBER' with the phone number to which you want to send the message
-  const phoneNumber = '67073142545';
+  const phoneNumber = '67074722233';
 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
