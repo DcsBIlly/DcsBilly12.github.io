@@ -30,30 +30,21 @@ body
     100% { opacity: 1; }
   }
 
-  /* languague switcher starts*/
-  .language-switcher {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: #e2c7c7;
-    margin-top: 0;;
-    margin-bottom: 0%;
-  }
-  
-  .language-switcher select {
-    font-size: 0.5rem;
-    color: #fff;
-    background-color:  rgba(53, 49, 49, 0.8);
+  .remove-button {
+    background-color: #ff5555;
+    color: rgb(239, 225, 225);
     border: none;
-    padding: 0.2rem 0.4rem;
+    font-size: .5rem;
     border-radius: 2rem;
+    padding: 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
-  .language-switcher select:hover {
-    background-color: #7b7874;
+  .remove-button:hover {
+    background-color: #ff3333;
   }
+  /*
 
 /* languague switcher ends */
 .navbar {
@@ -84,6 +75,7 @@ body
      font-size: 1.4rem ;
      margin: 0 1rem;
 }
+
 .navbar .navbar-nav a:hover {
     color: var(--primary);
 }
@@ -100,7 +92,7 @@ body
 }
 .navbar .navbar-extra a{
      color: #fff;
-     margin: 2rem 2rem 0.5rem 0.5rem;
+     margin: 1rem 1rem 0.5rem 0.5rem;
 }
 .navbar .navbar-extra a:hover {
     color: var(--primary);
@@ -178,13 +170,14 @@ body
 
 .about, .Menu, .contact {
     padding: 8rem 7% 1.4rem;
+margin-bottom: 15rem;
 }
-.about h2, .Menu h2, .contact h2 {
+.about h2, .Hero h2, .contact h2 {
      text-align: center;
      font-size: 2.6rem;
      margin-bottom: 3rem;
 }
-.order h2 span, .about h2 span, .Menu h2 span, .contact h2 span {
+.order h2 span, .about h2 span, .Hero h2 span, .contact h2 span {
     color: var(--primary);
 }
 
@@ -205,12 +198,12 @@ body
     padding: 0 1rem;
     text-align: center;
 }
-.Menu h2, .contact h2 {
+.contact h2 {
     font-size: 1.2re;
     margin-bottom: 1rem;
    
 }
-.Menu p, .contact p {
+.contact p {
     font-size: 1.2rem;
     text-align: center;
     max-width: 30rem;
@@ -219,37 +212,66 @@ body
     line-height: 1rem;
 }
 /* Menu sections */
-.Menu .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 5rem;
-    justify-content: center;
+.Hero {
+    margin-top: 8rem;
+    background-color: #070000;
 }
-.Menu .row .menu-card {
+.Hero p{
+    font-size: 4rem;
     text-align: center;
-    padding-bottom: 4rem;
-    flex: 1 1 45%; /* Set a maximum width for each menu card */
-    max-width: 30rem;
-    margin: 1rem; /* Add some margin between the cards */
-    display: flex; /* Use flexbox to align items in a column layout */
-    flex-direction: column;
-    align-items: center;
-  
+    color: #ffffff;
+    margin: 10px 10px 10px 10px;
 }
-.Menu .row .menu-card img {
-    width: 100%; /* Adjust the image width as needed */
-    max-height: 12rem; /* Limit the image height to prevent them from becoming too large */
-    object-fit: cover; /* Use object-fit to maintain the image aspect ratio */
-    object-position: center; /* Center the image within the container */
-    border-radius: 2rem; /* Remove the border-radius */
+.Hero p{
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+    margin: 10px 10px 10px 10px;
+}
+.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 1.5rem;
 }
 
-.Menu .row .menu-card .menu-card-price {
-    font-size: 3rem;
-    margin: 1.5rem auto 0.5rem;
+.menu-item {
+    flex: 0 0 calc(15% - 20px); /* Adjust width for 2 items per row */
+    margin: 8px;
+    padding: 4px;
+    background-color: #3bf0fa;
+    border: .5px solid #f503f9;
+    text-align: center;
+    border-radius: 1.2rem;
+    transition: all 0.3s ease-in-out; /* Adding a transition effect */
 }
-.Menu .row .menu-card .menu-card-title {
-    margin: 1.5rem auto 0.5rem;
+.menu-item:hover {
+    background-color: #f903c0; /* Changing background color on hover */
+    color: #0eff6e; /* Changing text color on hover */
+    transform: scale(1.05); /* Applying a slight scale increase on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow on hover */
+}
+.menu-item img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 2px;
+    border-radius: 1.5rem;
+}
+
+.menu-item h3 {
+    margin: 2px 0;
+}
+
+.menu-item h4 {
+    color: #b6895b;
+    margin: 0 2px 0 2px;
+}
+
+.menu-item p {
+    font-size: 14px;
+    margin: 0 2px 0 2px;
 }
 
 /* contact section*/
@@ -392,19 +414,7 @@ footer .credit a {
     color: #fffefe;
     text-align: center; /* Center text horizontally */
     margin-top: 5px; /* Space between title and price */
-}
-
-  .remove-btn {
-    background-color: #ff0000;
-    color: #ffffff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 4px;
-    margin-left: 10px;
-  }
-  
+}  
   /* Optional: Add hover effect for better user experience */
   .menu-item:hover {
     background-color: #615b5b;
@@ -428,8 +438,9 @@ footer .credit a {
   }
   #order-summary {
     position: fixed;
-    top: 6rem;
+    top: 3rem;
     left: 1rem;
+    font-size: 1rem;
     background-color:rgba(53, 49, 49, 0.8);
     padding: 0.5rem;
     border-radius: 1rem;
@@ -439,7 +450,6 @@ footer .credit a {
 }
 
 #order-summary p {
-    margin-bottom: 0.5rem;
     font-size: 0.8rem;
 }
 
@@ -458,7 +468,7 @@ footer .credit a {
   }
   
   #order-summary .summary-item p {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   
   #order-summary span {
@@ -469,18 +479,18 @@ footer .credit a {
     flex-direction: column;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 10rem 10rem 0 ;
+    gap: 1px;
+    margin: 0.2re 0.2rem 0 ;
 }
 
 #delivery-details h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 0.5rem;
+    margin-bottom: 0.2rem;
     color: #fffcfc;
 }
 
 #delivery-details label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #b69e9e;
     margin-right: 1rem;
     min-width: auto;
@@ -489,9 +499,9 @@ footer .credit a {
 #delivery-details .delivery-input {
     box-sizing: border-box; /* Set box-sizing to border-box for all delivery inputs */
     flex: 1;
-    margin-top: 1rem;
-    padding: 1rem 1rem;
-    font-size: 1rem;
+    margin-top: 0.2rem;
+    padding: 0.2rem 0.2rem;
+    font-size: 0.8rem;
     border: none;
     background-color: rgba(226, 208, 152, 0.85);
     color: #655c5c;
@@ -513,36 +523,35 @@ footer .credit a {
 }
 
 #order-summary p {
-    font-size: 1.6rem;
+    font-size: 0.8rem;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
 }
 #order-form {
     text-align: center;
   }
   
   #send-order-btn {
-    margin-top: 5px; /* Add some margin to separate from the order summary */
+    margin-top: 2px; /* Add some margin to separate from the order summary */
   }
   
   /* Additional media query for responsiveness */
   
   @media (max-width: 768px) {
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
     .menu-item {
-        width: calc(75% - 30px);
-    }
-    .menu-card {
-        text-align: center; /* Center content horizontally */
-    }
-    .order .menu-item {
-      flex: 1 1 100%;
+        flex: 0 0 calc(30% - 20px);
+        margin: 5px;
+        padding: 10px;
     }
     
-    .order .menu-item label {
-      font-size: 1.4rem;
-    }
-    
-    .order .btn {
+    .Hero .btn {
       margin-top: 2rem;
     }
     .order .delivery-details .input-group {
@@ -641,21 +650,41 @@ footer .credit a {
 
 @media (max-width:450px) {
     html {
-        font-size: 55%;
+        font-size: 50%;
     }
     .menu-item {
         width: calc(50% - 20px);
     }
 }
-
-.remove-btn {
-    background-color: #fa0769;
-    color: #ffffff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 0.5rem;
-    border-radius: 2rem;
-    margin-left: 5px; /* Adjust the spacing as needed */
+/* Style for the "Submit Order" button */
+/* Container for centering */
+#submit-order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px; /* Adjust margin as needed */
   }
+#send-order-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 2px;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-top: 2px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Style for the "Submit Order" button on hover */
+  #send-order-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Style for the "Submit Order" button when clicked */
+  #send-order-btn:active {
+    background-color: #003580;
+    transform: scale(0.95);
+  }
+  
