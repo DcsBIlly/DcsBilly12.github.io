@@ -1,3 +1,4 @@
+
 const navbarNav = document.querySelector('.navbar-nav');
 const hamburger = document.querySelector('#hamburger-menu');
 
@@ -11,39 +12,59 @@ document.body.addEventListener('click', function (e) {
     }
 });
 
-
-
 // Get references to the necessary elements
 const menuItems = document.querySelectorAll('.menu-item');
 const selectedItemsList = document.getElementById('selected-items-list');
 const totalItemsElement = document.getElementById('total-items');
 const totalPriceElement = document.getElementById('total-price');
-const sendOrderBtn = document.getElementById('send-order-btn');
+const shoppingCartIcon = document.getElementById('shopping-cart');
+const orderSummary = document.getElementById("order-summary");
 
+shoppingCartIcon.addEventListener('click', (event) => {
+  event.preventDefault();
+  const orderSummary = document.getElementById("order-summary");
+  
+  // toggel visibility
+  if (orderSummary.style.display === "block") {
+    orderSummary.style.display = "none";
+  } else {
+    orderSummary.style.display = "block";
+  }
+    showOrderSummary();
+});
 // Object to store selected items
 const selectedItems = {};
 // Function to show the order summary
-const showOrderSummary = () => {
-  const orderSummary = document.getElementById("order-summary");
-  orderSummary.style.display = "block";
-};
-
+function showOrderSummary() {
+ 
+}
 // Function to hide the order summary
 const hideOrderSummary = () => {
   const orderSummary = document.getElementById("order-summary");
   orderSummary.style.display = "none";
+ 
 };
+ // hide order summary initially
+ hideOrderSummary();
 
-// hide order summary initially
-hideOrderSummary();
 
+function updateCartBadge(totalQuantity) {
+  const cartBadge = document.querySelector('.cart-badge');
+  cartBadge.textContent = totalQuantity;
+  cartBadge.style.display = totalQuantity > 0 ? 'block' : 'none';
+}
 // ...
 // Function to update the order summary
 function updateOrderSummary() {
   selectedItemsList.innerHTML = '';
   let totalItems = 0;
   let totalPrice = 0;
+  let totalQuantity = 0;
+  for (const itemName in selectedItems) {
+    totalQuantity += selectedItems[itemName];
+  }
 
+  updateCartBadge(totalQuantity);
   for (const itemName in selectedItems) {
     const quantity = selectedItems[itemName];
     const menuItem = document.querySelector(`[data-name="${itemName}"]`);
@@ -84,8 +105,6 @@ function updateOrderSummary() {
     orderSummarySection.style.display = 'none';
   }
 }
-
-
 // Add click event listeners to each menu item
 menuItems.forEach((menuItem) => {
   const itemName = menuItem.getAttribute('data-name');
@@ -96,13 +115,10 @@ menuItems.forEach((menuItem) => {
     } else {
       selectedItems[itemName] = 1;
     }
-
     updateOrderSummary();
-
-    showOrderSummary();
+    hideOrderSummary();
   });
 });
-
 // Remove button event listener to remove items from the order summary
 selectedItemsList.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
@@ -116,43 +132,7 @@ selectedItemsList.addEventListener('click', (event) => {
   }
 });
 
-// Handle the "Send Order" button click event
-sendOrderBtn.addEventListener('click', () => {
-  // Create an array to store the selected items for order submission
-  const orderItems = [];
-  
-  // Iterate through the selectedItems object
-  for (const itemName in selectedItems) {
-    const quantity = selectedItems[itemName];
-    const price = parseFloat(menuItems.querySelector(`[data-name="${itemName}"]`).getAttribute('data-price'));
-    
-    // Calculate the total price for each item
-    const totalPrice = price * quantity;
-    
-    // Create an object to represent each selected item
-    const orderItem = {
-      name: itemName,
-      quantity: quantity,
-      totalPrice: totalPrice
-    };
-    // Push the order item to the array
-    orderItems.push(orderItem);
-  }
-  // Now you can use the orderItems array to send the order to a server or display a confirmation message
-  // For this example, we'll just display a confirmation message
-  let confirmationMessage = 'You have ordered:\n';
-  orderItems.forEach((item) => {
-    confirmationMessage += `${item.quantity}x ${item.name} - $${item.totalPrice.toFixed(2)}\n`;
-  });
-  
-  confirmationMessage += `Total: $${totalPriceElement.textContent}`;
-  alert(confirmationMessage);
-
-  alert('Order submitted! Thank you.');
-});
-
 // WhatsApp Sendin order code
-// Event listener for the "Submit Order" button
 document.getElementById("send-order-btn").addEventListener("click", function () {
   // Get data from the form
   const name = document.getElementById("name").value;
@@ -173,6 +153,9 @@ document.getElementById("send-order-btn").addEventListener("click", function () 
   selectedItemsList.forEach(item => {
     message += `${item.textContent}\n`;
   });
+  // Add total items and total price to the message
+  message += `\nTotal Items: ${totalItemsElement.textContent}\nTotal Price: $${totalPriceElement.textContent}`;
+
 
   // Replace 'YOUR_PHONE_NUMBER' with the phone number to which you want to send the message
   const phoneNumber = '67074722233';
@@ -180,65 +163,5 @@ document.getElementById("send-order-btn").addEventListener("click", function () 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   // Open the WhatsApp link
-  window.open(whatsappLink);
-});
-// Function to update the visibility of the "Submit Order" button container
-function updateSubmitButtonVisibility() {
-  const submitOrderContainer = document.getElementById("submit-order-container");
-
-  // Check if there are selected items and all delivery details are filled
-  const hasSelectedItems = orderSummary.length > 0;
-  const isDeliveryDetailsFilled = !formFields.some(field => field.value.trim() === "");
-
-  // Show or hide the "Submit Order" button container
-  if (hasSelectedItems && isDeliveryDetailsFilled) {
-      submitOrderContainer.style.display = "block";
-  } else {
-      submitOrderContainer.style.display = "none";
-  }
-}
-// Get the "Order Agora" button element
-const orderButton = document.getElementById("order-button");
-
-// Get the menu section element
-const menuSection = document.getElementById("Hero");
-
-// Function to toggle the visibility of the button based on scroll position
-function toggleOrderButtonVisibility() {
-    const menuSectionTop = menuSection.getBoundingClientRect().top;
-
-    if (menuSectionTop <= 0) {
-        orderButton.style.display = "none";
-    } else {
-        orderButton.style.display = "block";
-    }
-}
-
-// Event listener to handle scroll and update button visibility
-window.addEventListener("scroll", toggleOrderButtonVisibility);
-
-// Initial call to set the initial visibility of the button
-toggleOrderButtonVisibility();
-
-
-document.getElementById("send-message-btn").addEventListener("click", function() {
-  // Get form input values
-  var naran = document.getElementById("naran").value;
-  var suggestions = document.getElementById("comment").value;
-  var number = document.getElementById("no").value;
-
-  // Construct the WhatsApp message
-  var whatsappMessage = `Name: ${naran}\nSuggestions: ${suggestions}\nPhone: ${number}`;
-
-  // Encode the message for the WhatsApp link
-  var encodedMessage = encodeURIComponent(whatsappMessage);
-
-  // Replace 'YOUR_PHONE_NUMBER' with the actual phone number
-  var phoneNumber = '67074722233';
-
-  // Construct the WhatsApp link
-  var whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-
-  // Open WhatsApp chat
   window.open(whatsappLink);
 });
