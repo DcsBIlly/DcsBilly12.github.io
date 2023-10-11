@@ -300,9 +300,9 @@ margin-bottom: 15rem;
 }
 
 .menu-item {
-    flex: 0 0 calc(15% - 20px); /* Adjust width for 2 items per row */
-    margin: 8px;
-    padding: 4px;
+    flex: 0 0 calc(30% - 20px);
+    margin: 5px;
+    padding: 10px;
     background-color:  rgba(53, 49, 49, 0.8);
     border: .5px solid #f503f9;
     text-align: center;
